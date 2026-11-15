@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -36,12 +37,76 @@ h1{font-size:clamp(38px,6.4vw,68px);font-weight:800;line-height:1.1;margin:8px 0
 .desc{color:var(--mut);max-width:560px;margin:14px 0 22px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 .stage{perspective:900px;display:flex;justify-content:center}
-.photo{width:min(330px,78vw);aspect-ratio:3/4;border-radius:30px;position:relative;transform-style:preserve-3d;background:linear-gradient(145deg,rgba(255,92,138,.3),rgba(124,92,255,.3));border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(255,92,138,.15);transition:transform .15s;overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:30px;display:block;position:relative;z-index:1}
-.photo .ini{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:100px;font-weight:800;z-index:0}
-.chip{position:absolute;z-index:2;padding:8px 14px;border-radius:12px;font-size:13px;font-weight:700;background:rgba(11,10,20,.85);border:1px solid var(--a1);animation:fl 4s ease-in-out infinite;white-space:nowrap}
-.c1{top:6%;left:-10%;transform:translateZ(90px)}.c2{top:42%;right:-12%;transform:translateZ(110px);border-color:var(--a2);animation-delay:.8s}.c3{bottom:6%;left:-4%;transform:translateZ(70px);border-color:var(--a3);animation-delay:1.6s}
+
+/* PROFILE PICTURE */
+.photo{
+  width:min(330px,78vw);
+  aspect-ratio:3/4;
+  border-radius:30px;
+  position:relative;
+  transform-style:preserve-3d;
+  background:linear-gradient(145deg,rgba(255,92,138,.3),rgba(124,92,255,.3));
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(255,92,138,.15);
+  transition:transform .15s;
+  overflow:visible;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 20%;
+  border-radius:30px;
+  display:block;
+  position:relative;
+  z-index:1;
+}
+.photo .ini{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:100px;
+  font-weight:800;
+  z-index:0;
+}
+
+/* FLOATING LABELS AROUND THE PHOTO */
+.chip{
+  position:absolute;
+  z-index:10;
+  padding:8px 14px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:700;
+  background:rgba(11,10,20,.92);
+  border:1px solid var(--a1);
+  animation:fl 4s ease-in-out infinite;
+  white-space:nowrap;
+  pointer-events:none;
+}
+.c1{
+  top:6%;
+  left:-18%;
+  transform:translateZ(90px);
+}
+.c2{
+  top:42%;
+  right:-20%;
+  transform:translateZ(110px);
+  border-color:var(--a2);
+  animation-delay:.8s;
+}
+.c3{
+  bottom:6%;
+  left:-15%;
+  transform:translateZ(70px);
+  border-color:var(--a3);
+  animation-delay:1.6s;
+}
 @keyframes fl{50%{translate:0 -9px}}
+
 .mq{overflow:hidden;white-space:nowrap;border-block:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);padding:16px 0;position:relative;z-index:2}
 .mq div{display:inline-block;animation:mq 22s linear infinite;font-weight:800;font-size:22px;color:var(--mut)}
 .mq span{margin:0 26px}.mq i{color:var(--a1);font-style:normal}
@@ -102,7 +167,18 @@ textarea{min-height:110px;resize:vertical}
 .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 footer{text-align:center;padding:26px;color:var(--mut);font-size:14px}
 .rv{opacity:0;transform:translateY(40px);transition:1s}.rv.in{opacity:1;transform:none}
-@media(max-width:850px){.hero .wrap{grid-template-columns:1fr;padding-top:110px;text-align:center}.desc{margin-inline:auto}.cta{justify-content:center}.fun,.calc,.learn{grid-template-columns:1fr}.c1{left:2%}.c2{right:2%}.c3{left:2%}.chip{font-size:12px;padding:6px 10px}}
+
+@media(max-width:850px){
+.hero .wrap{grid-template-columns:1fr;padding-top:110px;text-align:center}
+.desc{margin-inline:auto}
+.cta{justify-content:center}
+.fun,.calc,.learn{grid-template-columns:1fr}
+.c1{left:-2%}
+.c2{right:-2%}
+.c3{left:-2%}
+.chip{font-size:12px;padding:6px 10px}
+}
+
 @media(prefers-reduced-motion:reduce){.chip,.mq div{animation:none}.rv{transition:none;opacity:1;transform:none}}
 </style>
 </head>
@@ -223,14 +299,11 @@ footer{text-align:center;padding:26px;color:var(--mut);font-size:14px}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-/* ===== EDIT HERE ===== */
-/* Keep Pic1.jpg and Video1.mp4 in the same folder as index.html. */
 const PHOTO = './Pic1.jpg';
 const VIDEO = './Video1.mp4';
 const VIDEO_POSTER = './Video1.mp4';
 const PHONE_WA = '201002011294';
 
-/* PHOTO: load the image and keep initials visible if the file is missing. */
 const pic = document.getElementById('pic');
 if (PHOTO) {
   pic.src = PHOTO;
@@ -243,7 +316,6 @@ if (PHOTO) {
   pic.style.display = 'none';
 }
 
-/* VIDEO: load a local MP4 file or a supported embed URL. */
 (function setupVideo() {
   const box = document.getElementById('vf');
   const section = document.getElementById('vp');
@@ -312,12 +384,10 @@ function buildSteps() {
   showStage(cur);
 }
 
-/* Marquee */
 document.getElementById('mq').innerHTML =
   ['Marketing','Content','Content Strategy','Market & Business','Media Buying','Branding','Social Media','Performance Ads']
   .map(x => `<span>${x.replace('&','&amp;')}</span><i>✦</i>`).join('').repeat(4);
 
-/* Ads calculator */
 const $ = id => document.getElementById(id);
 const f0 = number => Math.round(number).toLocaleString('en');
 
@@ -347,7 +417,6 @@ function calc() {
 ['b','c','r','a'].forEach(id => $(id).addEventListener('input', calc));
 calc();
 
-/* Projects */
 const CANVA = 'https://www.canva.com/design/DAHYZFmafMo/RHRMhoyYoHIIJ38W7FovmA/view';
 const PROJECTS = [
   {t:'Project 01',en:'Brand Campaign',ar:'حملة براند',de:{en:'Short description of the project, goal and result.',ar:'وصف مختصر للمشروع والهدف والنتيجة.'},tags:['Marketing','Content'],img:'',link:CANVA,ic:'🎯'},
@@ -365,7 +434,6 @@ function buildProjects() {
   document.querySelectorAll('.pc').forEach(card => tilt(card,14));
 }
 
-/* Language switch */
 function setLang(language) {
   L = language;
   const doc = document.documentElement;
@@ -391,7 +459,6 @@ function setLang(language) {
 }
 $('lang').onclick = () => setLang(L === 'en' ? 'ar' : 'en');
 
-/* Typewriter */
 let ri = 0, rc = 0, rd = false;
 (function typeWriter() {
   const value = roles[L][ri % roles[L].length];
@@ -410,7 +477,6 @@ let ri = 0, rc = 0, rd = false;
   setTimeout(typeWriter,delay);
 })();
 
-/* Reveal on scroll */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -421,7 +487,6 @@ const observer = new IntersectionObserver(entries => {
 },{threshold:.12});
 document.querySelectorAll('.rv').forEach(element => observer.observe(element));
 
-/* 3D tilt and glow */
 function tilt(element,maximum) {
   element.addEventListener('mousemove',event => {
     const rect = element.getBoundingClientRect();
@@ -448,7 +513,6 @@ addEventListener('mousemove',event => {
   $('glow').style.top = event.clientY + 'px';
 });
 
-/* Contact form */
 $('f').onsubmit = event => {
   event.preventDefault();
   location.href = 'mailto:doctormernamourid@gmail.com?subject=' +
@@ -457,7 +521,6 @@ $('f').onsubmit = event => {
     encodeURIComponent('Name: ' + $('n').value + '\n\n' + $('m').value);
 };
 
-/* Three.js background */
 try {
   const renderer = new THREE.WebGLRenderer({canvas:$('bg'),alpha:true,antialias:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
