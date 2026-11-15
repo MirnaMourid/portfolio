@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merna Mourid — Marketing · Content · Media Buying</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0a14;--card:rgba(255,255,255,.05);--tx:#f5f2ff;--mut:#b9b3d6;--a1:#ff5c8a;--a2:#ffb84d;--a3:#7c5cff;color-scheme:dark;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Poppins','Cairo',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;line-height:1.7}
+[dir=rtl] body,body[dir=rtl]{font-family:'Cairo','Poppins',sans-serif}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(255,92,138,.18),transparent 65%);transform:translate(-50%,-50%);left:50%;top:30%}
+section,footer{position:relative;z-index:2}
+.wrap{max-width:1150px;margin:0 auto;padding:90px 20px}
+.grad{background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2.t{font-size:clamp(26px,4vw,40px);font-weight:800;text-align:center}
+.sub{text-align:center;color:var(--mut);margin:6px 0 44px}
+.bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:rgba(11,10,20,.6);backdrop-filter:blur(12px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:49;background:rgba(11,10,20,.6);backdrop-filter:blur(12px)}
+.logo{font-weight:800;font-size:18px}.id{display:flex;align-items:center;gap:14px}
+.ph{color:var(--tx);text-decoration:none;font-weight:600;font-size:14px;padding:6px 12px;border-radius:99px;background:var(--card);border:1px solid rgba(255,255,255,.15);transition:.3s}
+.ph:hover{border-color:var(--a1);color:var(--a2)}
+@media(max-width:560px){.ph{font-size:12px;padding:5px 9px}.logo{font-size:15px}.nav .ghost{display:none}}
+.nav{display:flex;gap:8px;align-items:center}
+.btn{border:0;cursor:pointer;font:inherit;font-weight:700;padding:11px 20px;border-radius:12px;color:#1a0510;background:linear-gradient(90deg,var(--a1),var(--a2));transition:.3s;text-decoration:none;display:inline-block}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,92,138,.4)}
+.btn.ghost{background:var(--card);color:var(--tx);border:1px solid rgba(255,255,255,.15)}
+.hero{min-height:100vh;display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;width:100%}
+.hi{color:var(--a2);font-weight:600;letter-spacing:3px;font-size:13px}
+h1{font-size:clamp(38px,6.4vw,68px);font-weight:800;line-height:1.1;margin:8px 0}
+.role{font-size:clamp(18px,2.6vw,26px);font-weight:600;color:#d9d2ff;min-height:40px}
+.desc{color:var(--mut);max-width:560px;margin:14px 0 22px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stage{perspective:900px;display:flex;justify-content:center}
+.photo{width:min(330px,78vw);aspect-ratio:3/4;border-radius:30px;position:relative;transform-style:preserve-3d;background:linear-gradient(145deg,rgba(255,92,138,.3),rgba(124,92,255,.3));border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(255,92,138,.15);transition:transform .15s;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:30px;display:block;position:relative;z-index:1}
+.photo .ini{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:100px;font-weight:800;z-index:0}
+.chip{position:absolute;z-index:2;padding:8px 14px;border-radius:12px;font-size:13px;font-weight:700;background:rgba(11,10,20,.85);border:1px solid var(--a1);animation:fl 4s ease-in-out infinite;white-space:nowrap}
+.c1{top:6%;left:-10%;transform:translateZ(90px)}.c2{top:42%;right:-12%;transform:translateZ(110px);border-color:var(--a2);animation-delay:.8s}.c3{bottom:6%;left:-4%;transform:translateZ(70px);border-color:var(--a3);animation-delay:1.6s}
+@keyframes fl{50%{translate:0 -9px}}
+.mq{overflow:hidden;white-space:nowrap;border-block:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);padding:16px 0;position:relative;z-index:2}
+.mq div{display:inline-block;animation:mq 22s linear infinite;font-weight:800;font-size:22px;color:var(--mut)}
+.mq span{margin:0 26px}.mq i{color:var(--a1);font-style:normal}
+@keyframes mq{to{transform:translateX(-50%)}}
+[dir=rtl] .mq div{animation-direction:reverse}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;perspective:1000px}
+.card{padding:26px;border-radius:22px;background:var(--card);border:1px solid rgba(255,255,255,.1);transform-style:preserve-3d;transition:transform .2s,box-shadow .3s}
+.card:hover{box-shadow:0 24px 50px rgba(124,92,255,.25)}
+.card .ic{font-size:38px;display:inline-block;transform:translateZ(40px)}
+.card h3{font-size:18px;margin:6px 0;transform:translateZ(30px)}
+.card p{color:var(--mut);font-size:14px;transform:translateZ(18px)}
+.fun{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:center}
+.steps{display:flex;flex-direction:column;align-items:center;gap:8px}
+.st{border:0;cursor:pointer;font:inherit;font-weight:800;color:#fff;padding:15px;border-radius:14px;background:rgba(255,255,255,.08);transition:.35s;clip-path:polygon(0 0,100% 0,94% 100%,6% 100%)}
+.st:nth-child(1){width:100%}.st:nth-child(2){width:84%}.st:nth-child(3){width:68%}.st:nth-child(4){width:52%}
+.st.on,.st:hover{background:linear-gradient(90deg,var(--a1),var(--a3));transform:scale(1.04)}
+.panel{padding:28px;border-radius:22px;background:var(--card);border:1px solid rgba(255,255,255,.1);min-height:290px}
+.panel h3{font-size:22px;margin-bottom:6px}.panel p{color:var(--mut)}
+.panel h4{margin:14px 0 8px;color:var(--a2);font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:13px;font-weight:700;padding:6px 13px;border-radius:99px;background:linear-gradient(90deg,var(--a3),var(--a1));color:#fff}
+.tag.k{background:linear-gradient(90deg,var(--a2),#ffd98f);color:#2a1700}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.box{padding:28px;border-radius:22px;background:var(--card);border:1px solid rgba(255,255,255,.1)}
+.row{margin-bottom:18px}
+.row label{display:flex;justify-content:space-between;font-weight:600;font-size:14px;margin-bottom:6px}
+.row label b{color:var(--a2)}
+input[type=range]{width:100%;accent-color:var(--a1)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.res div{padding:18px;border-radius:16px;background:rgba(255,255,255,.06);text-align:center}
+.res b{display:block;font-size:28px;font-weight:800}.res span{font-size:12px;color:var(--mut)}
+.note{font-size:12px;color:var(--mut);margin-top:14px}
+.pj{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;perspective:1000px;margin-top:26px}
+.pc{border-radius:22px;overflow:hidden;background:var(--card);border:1px solid rgba(255,255,255,.1);transform-style:preserve-3d;transition:transform .2s,box-shadow .3s;display:flex;flex-direction:column}
+.pc:hover{box-shadow:0 24px 50px rgba(255,92,138,.25)}
+.pc .im{aspect-ratio:16/10;background:linear-gradient(135deg,rgba(255,92,138,.35),rgba(124,92,255,.35));display:flex;align-items:center;justify-content:center;font-size:54px;overflow:hidden}
+.pc .im img{width:100%;height:100%;object-fit:cover}
+.pc .bd{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pc .bd small{color:var(--a2);font-weight:700;letter-spacing:1px}
+.pc h3{font-size:19px}.pc p{color:var(--mut);font-size:14px;flex:1}
+.cv{position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.15);background:#000;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.cv::before{content:"";display:block;padding-top:56.25%}
+.cv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cvb{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.vp{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;margin:34px auto 0;padding:28px;border-radius:26px;background:var(--card);border:1px solid rgba(255,255,255,.12);perspective:1000px}
+.vf{width:min(270px,70vw);aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;border:2px solid rgba(255,255,255,.2);box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 50px rgba(255,92,138,.2);transform-style:preserve-3d;transition:transform .2s}
+.vf video,.vf iframe{width:100%;height:100%;object-fit:cover;display:block;border:0}
+@media(max-width:700px){.vp{grid-template-columns:1fr;justify-items:center;text-align:center}.vp .tags{justify-content:center}}
+.learn{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.big{font-size:20px;font-weight:800}
+.list{list-style:none;margin-top:12px}
+.list li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.12);color:var(--mut)}
+.list li::before{content:"✦ ";color:var(--a1)}
+form{max-width:560px;margin:26px auto 0;display:grid;gap:12px}
+input:not([type=range]),textarea{font:inherit;padding:13px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--tx);width:100%}
+input:focus,textarea:focus{outline:0;border-color:var(--a1)}
+textarea{min-height:110px;resize:vertical}
+.links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;padding:26px;color:var(--mut);font-size:14px}
+.rv{opacity:0;transform:translateY(40px);transition:1s}.rv.in{opacity:1;transform:none}
+@media(max-width:850px){.hero .wrap{grid-template-columns:1fr;padding-top:110px;text-align:center}.desc{margin-inline:auto}.cta{justify-content:center}.fun,.calc,.learn{grid-template-columns:1fr}.c1{left:2%}.c2{right:2%}.c3{left:2%}.chip{font-size:12px;padding:6px 10px}}
+@media(prefers-reduced-motion:reduce){.chip,.mq div{animation:none}.rv{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas><div id="glow"></div>
+
+<div class="bar">
+  <div class="id">
+    <div class="logo grad">Merna Mourid</div>
+    <a class="ph" href="tel:+201002011294" dir="ltr">📞 +20 100 201 1294</a>
+  </div>
+  <div class="nav">
+    <a class="btn ghost" href="#contact" data-en="Let’s Work" data-ar="نشتغل سوا">Let’s Work</a>
+    <button class="btn" id="lang">العربية</button>
+  </div>
+</div>
+
+<section class="hero">
+<div class="wrap">
+  <div>
+    <div class="hi" data-en="MARKETING · CONTENT · MEDIA BUYING" data-ar="تسويق · محتوى · ميديا باينج">MARKETING · CONTENT · MEDIA BUYING</div>
+    <h1 class="grad" data-en="Merna Mourid Fawzy" data-ar="ميرنا مريد فوزي">Merna Mourid Fawzy</h1>
+    <div class="role" id="role"></div>
+    <div class="desc" data-en="I turn ideas into content people remember and campaigns that perform. Strategy first, creativity second, numbers always." data-ar="بحوّل الأفكار لمحتوى الناس بتفتكره وحملات بتجيب نتيجة. الاستراتيجية الأول، الإبداع بعدها، والأرقام دايمًا.">I turn ideas into content people remember and campaigns that perform. Strategy first, creativity second, numbers always.</div>
+    <div class="cta">
+      <a class="btn" href="#funnel" data-en="Explore my approach" data-ar="اكتشف طريقتي">Explore my approach</a>
+      <a class="btn ghost" href="#calc" data-en="Try the ads calculator" data-ar="جرّب حاسبة الإعلانات">Try the ads calculator</a>
+    </div>
+  </div>
+  <div class="stage">
+    <div class="photo" id="photo">
+      <div class="ini grad">MM</div>
+      <img id="pic" alt="Merna Mourid" src="./Pic1.jpg">
+      <div class="chip c1" data-en="🎯 Marketing" data-ar="🎯 تسويق">🎯 Marketing</div>
+      <div class="chip c2" data-en="✍️ Content Strategy" data-ar="✍️ استراتيجية المحتوى">✍️ Content Strategy</div>
+      <div class="chip c3" data-en="📈 Media Buying" data-ar="📈 ميديا باينج">📈 Media Buying</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="mq"><div id="mq"></div></div>
+
+<section><div class="wrap rv">
+  <h2 class="t"><span class="grad" data-en="What I Do" data-ar="اللي بعمله">What I Do</span></h2>
+  <p class="sub" data-en="Five pillars, one growth mindset" data-ar="خمس ركائز بعقلية نمو واحدة">Five pillars, one growth mindset</p>
+  <div class="grid">
+    <div class="card"><div class="ic">🎯</div><h3>Marketing</h3><p data-en="Positioning, audience research and campaign planning built around real customer needs." data-ar="تمركز، دراسة الجمهور وتخطيط حملات مبني على احتياج العميل الحقيقي.">Positioning, audience research and campaign planning built around real customer needs.</p></div>
+    <div class="card"><div class="ic">✍️</div><h3>Content</h3><p data-en="Posts, reels, captions and stories with a clear voice that stops the scroll." data-ar="بوستات، ريلز، كابشنز وستوريز بصوت واضح يوقّف السكرول.">Posts, reels, captions and stories with a clear voice that stops the scroll.</p></div>
+    <div class="card"><div class="ic">🧭</div><h3>Content Strategy</h3><p data-en="Pillars, calendars and funnels that connect every piece of content to a goal." data-ar="ركائز، كاليندر وفانلز بتربط كل محتوى بهدف.">Pillars, calendars and funnels that connect every piece of content to a goal.</p></div>
+    <div class="card"><div class="ic">💼</div><h3>Market &amp; Business</h3><p data-en="Competitor analysis, offers and pricing angles that make marketing profitable." data-ar="تحليل منافسين، عروض وزوايا تسعير تخلّي التسويق مربح.">Competitor analysis, offers and pricing angles that make marketing profitable.</p></div>
+    <div class="card"><div class="ic">📈</div><h3>Media Buying</h3><p data-en="Paid campaigns, testing, tracking and optimization focused on ROAS." data-ar="حملات مدفوعة، اختبار، تتبع وتحسين بتركيز على العائد.">Paid campaigns, testing, tracking and optimization focused on ROAS.</p></div>
+  </div>
+</div></section>
+
+<section id="funnel"><div class="wrap rv">
+  <h2 class="t"><span class="grad" data-en="My Content Funnel" data-ar="فانل المحتوى بتاعي">My Content Funnel</span></h2>
+  <p class="sub" data-en="Click each stage to see the content and KPIs" data-ar="اضغط على كل مرحلة وشوف المحتوى والمؤشرات">Click each stage to see the content and KPIs</p>
+  <div class="fun"><div class="steps" id="steps"></div><div class="panel" id="panel"></div></div>
+</div></section>
+
+<section id="calc"><div class="wrap rv">
+  <h2 class="t"><span class="grad" data-en="Ads Budget Calculator" data-ar="حاسبة ميزانية الإعلانات">Ads Budget Calculator</span></h2>
+  <p class="sub" data-en="Move the sliders — see what a campaign could return" data-ar="حرّك السلايدرز وشوف الحملة ممكن ترجّع كام">Move the sliders — see what a campaign could return</p>
+  <div class="calc">
+    <div class="box">
+      <div class="row"><label><span data-en="Budget (EGP)" data-ar="الميزانية (جنيه)">Budget (EGP)</span><b id="vb"></b></label><input type="range" id="b" min="1000" max="100000" step="500" value="10000"></div>
+      <div class="row"><label><span data-en="Cost per click (EGP)" data-ar="تكلفة الكليك (جنيه)">Cost per click (EGP)</span><b id="vc"></b></label><input type="range" id="c" min="0.5" max="15" step="0.5" value="3"></div>
+      <div class="row"><label><span data-en="Conversion rate (%)" data-ar="معدل التحويل (%)">Conversion rate (%)</span><b id="vr"></b></label><input type="range" id="r" min="0.5" max="10" step="0.5" value="2"></div>
+      <div class="row"><label><span data-en="Average order value (EGP)" data-ar="متوسط قيمة الطلب (جنيه)">Average order value (EGP)</span><b id="va"></b></label><input type="range" id="a" min="100" max="5000" step="50" value="600"></div>
+    </div>
+    <div class="box">
+      <div class="res">
+        <div><b id="o1" class="grad"></b><span data-en="Clicks" data-ar="كليكات">Clicks</span></div>
+        <div><b id="o2" class="grad"></b><span data-en="Orders" data-ar="طلبات">Orders</span></div>
+        <div><b id="o3" class="grad"></b><span data-en="Revenue (EGP)" data-ar="الإيراد (جنيه)">Revenue (EGP)</span></div>
+        <div><b id="o4" class="grad"></b><span>ROAS</span></div>
+        <div><b id="o5" class="grad"></b><span data-en="Cost per order (EGP)" data-ar="تكلفة الطلب (جنيه)">Cost per order (EGP)</span></div>
+        <div><b id="o6" class="grad"></b><span data-en="Verdict" data-ar="التقييم">Verdict</span></div>
+      </div>
+      <p class="note" data-en="Illustrative estimate only — real results depend on the offer, creative and audience." data-ar="تقدير توضيحي فقط — النتائج الحقيقية بتعتمد على العرض والكرييتيف والجمهور.">Illustrative estimate only — real results depend on the offer, creative and audience.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap rv">
+  <h2 class="t"><span class="grad" data-en="Projects" data-ar="المشاريع">Projects</span></h2>
+  <p class="sub" data-en="Selected work — live from my Canva portfolio" data-ar="مختارات من شغلي — مباشرة من الـ Canva بتاعي">Selected work — live from my Canva portfolio</p>
+  <div class="cv" id="cvbox"><iframe id="cvf" loading="lazy" allowfullscreen title="Canva projects"></iframe></div>
+  <div class="cvb"><a class="btn" id="cvo" target="_blank" rel="noopener" data-en="Open full portfolio on Canva ↗" data-ar="افتح البورتفوليو كامل على Canva ↗">Open full portfolio on Canva ↗</a></div>
+  <div class="vp" id="vp">
+    <div class="vf" id="vf"></div>
+    <div><small data-en="VIDEO PROJECT" data-ar="مشروع فيديو">VIDEO PROJECT</small><h3 data-en="Featured Video" data-ar="فيديو مميز">Featured Video</h3><p data-en="Short description of the video: the goal, the audience and the result." data-ar="وصف مختصر للفيديو: الهدف والجمهور والنتيجة.">Short description of the video: the goal, the audience and the result.</p><div class="tags"><span class="tag">Content</span><span class="tag">Video</span><span class="tag">Social Media</span></div></div>
+  </div>
+  <div class="pj" id="pj"></div>
+</div></section>
+
+<section><div class="wrap rv">
+  <h2 class="t"><span class="grad" data-en="Learning &amp; Growth" data-ar="التعلّم والتطوّر">Learning &amp; Growth</span></h2>
+  <p class="sub" data-en="Always sharpening the craft" data-ar="دايمًا بطوّر الحرفة">Always sharpening the craft</p>
+  <div class="learn">
+    <div class="card"><div class="ic">🎓</div><div class="big" data-en="Trained under Instructor Adham Hossam" data-ar="تدريب تحت إشراف المدرب أدهم حسام">Trained under Instructor Adham Hossam</div><ul class="list"><li>Marketing</li><li>Content &amp; Content Strategy</li><li>Market &amp; Business</li><li>Media Buying</li></ul></div>
+    <div class="card"><div class="ic">🌍</div><div class="big" data-en="Languages &amp; Background" data-ar="اللغات والخلفية">Languages &amp; Background</div><ul class="list"><li data-en="Arabic — Mother tongue" data-ar="العربية — لغة أم">Arabic — Mother tongue</li><li data-en="English — B2 · German — B1" data-ar="الإنجليزية B2 · الألمانية B1">English — B2 · German — B1</li><li data-en="7+ years in healthcare — strong with patient trust, communication and detail" data-ar="أكتر من 7 سنين في المجال الصحي — ثقة، تواصل واهتمام بالتفاصيل">7+ years in healthcare — strong with patient trust, communication and detail</li></ul></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap rv">
+  <h2 class="t"><span class="grad" data-en="Let’s Build Something" data-ar="خلّينا نبني حاجة">Let’s Build Something</span></h2>
+  <p class="sub" data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</p>
+  <div class="links">
+    <a class="btn" href="mailto:doctormernamourid@gmail.com">✉️ Email</a>
+    <a class="btn ghost" href="tel:+201002011294" dir="ltr">📞 +20 100 201 1294</a>
+    <a class="btn" href="https://wa.me/201002011294" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+  <form id="f"><input id="n" required placeholder="Name" data-en="Name" data-ar="الاسم"><input id="s" required placeholder="Subject" data-en="Subject" data-ar="الموضوع"><textarea id="m" required placeholder="Message" data-en="Message" data-ar="الرسالة"></textarea><button class="btn" type="submit" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button></form>
+</div></section>
+<footer>© Merna Mourid Fawzy</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ===== EDIT HERE ===== */
+/* Keep Pic1.jpg and Video1.mp4 in the same folder as index.html. */
+const PHOTO = './Pic1.jpg';
+const VIDEO = './Video1.mp4';
+const VIDEO_POSTER = '';
+const PHONE_WA = '201002011294';
+
+/* PHOTO: load the image and keep initials visible if the file is missing. */
+const pic = document.getElementById('pic');
+if (PHOTO) {
+  pic.src = PHOTO;
+  pic.onload = () => { pic.style.display = 'block'; };
+  pic.onerror = () => {
+    console.error('Image could not be loaded:', pic.src);
+    pic.style.display = 'none';
+  };
+} else {
+  pic.style.display = 'none';
+}
+
+/* VIDEO: load a local MP4 file or a supported embed URL. */
+(function setupVideo() {
+  const box = document.getElementById('vf');
+  const section = document.getElementById('vp');
+
+  if (!VIDEO) {
+    section.style.display = 'none';
+    return;
+  }
+
+  if (/youtube\.com\/embed|youtu\.be|player\.vimeo|drive\.google\.com/.test(VIDEO)) {
+    const frame = document.createElement('iframe');
+    frame.src = VIDEO;
+    frame.allowFullscreen = true;
+    frame.title = 'Featured video';
+    frame.loading = 'lazy';
+    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+    box.appendChild(frame);
+  } else {
+    const video = document.createElement('video');
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.setAttribute('webkit-playsinline', '');
+    if (VIDEO_POSTER) video.poster = VIDEO_POSTER;
+    video.src = VIDEO;
+    video.addEventListener('error', () => {
+      console.error('Video could not be loaded:', VIDEO, video.error);
+      box.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;padding:20px;text-align:center;color:#b9b3d6;font-size:14px">Video could not be loaded. Check that Video1.mp4 is in the same folder as index.html and uses a browser-supported MP4 format.</div>';
+    });
+    box.appendChild(video);
+    video.load();
+  }
+})();
+
+let L = 'en';
+const roles = {
+  en: ['Marketer', 'Content Strategist', 'Media Buyer'],
+  ar: ['مسوّقة', 'خبيرة استراتيجية محتوى', 'ميديا باير']
+};
+const stages = [
+  {n:{en:'Awareness',ar:'الوعي'},d:{en:'Get seen by the right people before they need you.',ar:'خلّي الناس المناسبة تشوفك قبل ما تحتاجك.'},f:['Reels','Short Video','Infographics','Reach Ads'],k:['Reach','Impressions','CPM','Video Views']},
+  {n:{en:'Consideration',ar:'التفكير'},d:{en:'Build trust and show why you are the better choice.',ar:'ابني الثقة وأثبت إنك الاختيار الأفضل.'},f:['Carousels','Case Studies','FAQs','Email Series'],k:['Engagement','CTR','Saves','Time on Page']},
+  {n:{en:'Conversion',ar:'التحويل'},d:{en:'Make the offer irresistible and the next step easy.',ar:'اعمل عرض قوي وخطوة تالية سهلة.'},f:['Offers','Landing Pages','Retargeting Ads','Testimonials'],k:['CVR','CPA','ROAS','Leads']},
+  {n:{en:'Loyalty',ar:'الولاء'},d:{en:'Turn buyers into repeat customers and advocates.',ar:'حوّل المشتري لعميل دائم وسفير للبراند.'},f:['Community','Newsletters','UGC','Referral Offers'],k:['Retention','LTV','Repeat Rate','NPS']}
+];
+let cur = 0;
+
+function showStage(i) {
+  document.querySelectorAll('.st').forEach((button,j) => button.classList.toggle('on', i === j));
+  const stage = stages[i];
+  document.getElementById('panel').innerHTML =
+    `<h3 class="grad">${stage.n[L]}</h3><p>${stage.d[L]}</p><h4>${L === 'en' ? 'Content formats' : 'أشكال المحتوى'}</h4><div class="tags">${stage.f.map(x => `<span class="tag">${x}</span>`).join('')}</div><h4>KPIs</h4><div class="tags">${stage.k.map(x => `<span class="tag k">${x}</span>`).join('')}</div>`;
+  cur = i;
+}
+
+function buildSteps() {
+  const wrap = document.getElementById('steps');
+  wrap.innerHTML = '';
+  stages.forEach((stage,i) => {
+    const button = document.createElement('button');
+    button.className = 'st';
+    button.textContent = stage.n[L];
+    button.onclick = () => showStage(i);
+    wrap.appendChild(button);
+  });
+  showStage(cur);
+}
+
+/* Marquee */
+document.getElementById('mq').innerHTML =
+  ['Marketing','Content','Content Strategy','Market & Business','Media Buying','Branding','Social Media','Performance Ads']
+  .map(x => `<span>${x.replace('&','&amp;')}</span><i>✦</i>`).join('').repeat(4);
+
+/* Ads calculator */
+const $ = id => document.getElementById(id);
+const f0 = number => Math.round(number).toLocaleString('en');
+
+function calc() {
+  const budget = +$('b').value;
+  const cpc = +$('c').value;
+  const rate = +$('r').value;
+  const averageOrder = +$('a').value;
+
+  $('vb').textContent = f0(budget);
+  $('vc').textContent = cpc;
+  $('vr').textContent = rate + '%';
+  $('va').textContent = f0(averageOrder);
+
+  const clicks = budget / cpc;
+  const orders = clicks * rate / 100;
+  const revenue = orders * averageOrder;
+  const roas = revenue / budget;
+
+  $('o1').textContent = f0(clicks);
+  $('o2').textContent = f0(orders);
+  $('o3').textContent = f0(revenue);
+  $('o4').textContent = roas.toFixed(1) + 'x';
+  $('o5').textContent = orders ? f0(budget / orders) : '—';
+  $('o6').textContent = roas >= 4 ? '🔥' : roas >= 2 ? '👍' : roas >= 1 ? '⚠️' : '❌';
+}
+['b','c','r','a'].forEach(id => $(id).addEventListener('input', calc));
+calc();
+
+/* Projects */
+const CANVA = 'https://www.canva.com/design/DAHYZFmafMo/RHRMhoyYoHIIJ38W7FovmA/view';
+const PROJECTS = [
+  {t:'Project 01',en:'Brand Campaign',ar:'حملة براند',de:{en:'Short description of the project, goal and result.',ar:'وصف مختصر للمشروع والهدف والنتيجة.'},tags:['Marketing','Content'],img:'',link:CANVA,ic:'🎯'},
+  {t:'Project 02',en:'Content Strategy Plan',ar:'خطة استراتيجية محتوى',de:{en:'Short description of the project, goal and result.',ar:'وصف مختصر للمشروع والهدف والنتيجة.'},tags:['Strategy','Calendar'],img:'',link:CANVA,ic:'🧭'},
+  {t:'Project 03',en:'Paid Ads Campaign',ar:'حملة إعلانات مدفوعة',de:{en:'Short description of the project, goal and result.',ar:'وصف مختصر للمشروع والهدف والنتيجة.'},tags:['Media Buying','ROAS'],img:'',link:CANVA,ic:'📈'}
+];
+
+$('cvf').src = CANVA + '?embed';
+$('cvo').href = CANVA;
+
+function buildProjects() {
+  $('pj').innerHTML = PROJECTS.map(project =>
+    `<a class="pc" href="${project.link}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div class="im">${project.img ? `<img src="${project.img}" alt="">` : project.ic}</div><div class="bd"><small>${project.t.toUpperCase()}</small><h3>${project[L]}</h3><p>${project.de[L]}</p><div class="tags">${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div></div></a>`
+  ).join('');
+  document.querySelectorAll('.pc').forEach(card => tilt(card,14));
+}
+
+/* Language switch */
+function setLang(language) {
+  L = language;
+  const doc = document.documentElement;
+  doc.lang = language;
+  doc.dir = language === 'ar' ? 'rtl' : 'ltr';
+  document.body.dir = doc.dir;
+
+  document.querySelectorAll('[data-en]').forEach(element => {
+    const value = element.dataset[language];
+    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      element.placeholder = value;
+    } else {
+      element.textContent = value;
+    }
+  });
+
+  $('lang').textContent = language === 'ar' ? 'English' : 'العربية';
+  ri = 0;
+  rc = 0;
+  rd = false;
+  buildSteps();
+  buildProjects();
+}
+$('lang').onclick = () => setLang(L === 'en' ? 'ar' : 'en');
+
+/* Typewriter */
+let ri = 0, rc = 0, rd = false;
+(function typeWriter() {
+  const value = roles[L][ri % roles[L].length];
+  rc += rd ? -1 : 1;
+  $('role').textContent = value.slice(0,rc);
+  let delay = rd ? 40 : 90;
+
+  if (!rd && rc === value.length) {
+    delay = 2000;
+    rd = true;
+  } else if (rd && rc <= 0) {
+    rd = false;
+    ri++;
+    delay = 400;
+  }
+  setTimeout(typeWriter,delay);
+})();
+
+/* Reveal on scroll */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(element => observer.observe(element));
+
+/* 3D tilt and glow */
+function tilt(element,maximum) {
+  element.addEventListener('mousemove',event => {
+    const rect = element.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - .5;
+    const y = (event.clientY - rect.top) / rect.height - .5;
+    element.style.transform = `rotateY(${x * maximum}deg) rotateX(${-y * maximum}deg)`;
+  });
+  element.addEventListener('mouseleave',() => element.style.transform = '');
+}
+document.querySelectorAll('.card').forEach(card => tilt(card,14));
+tilt($('vf'),16);
+const photo = $('photo');
+tilt(photo,22);
+let angle = 0;
+setInterval(() => {
+  if (!photo.matches(':hover')) {
+    angle += .04;
+    photo.style.transform = `rotateY(${Math.sin(angle) * 12}deg) rotateX(${Math.cos(angle) * 5}deg)`;
+  }
+},30);
+
+addEventListener('mousemove',event => {
+  $('glow').style.left = event.clientX + 'px';
+  $('glow').style.top = event.clientY + 'px';
+});
+
+/* Contact form */
+$('f').onsubmit = event => {
+  event.preventDefault();
+  location.href = 'mailto:doctormernamourid@gmail.com?subject=' +
+    encodeURIComponent($('s').value) +
+    '&body=' +
+    encodeURIComponent('Name: ' + $('n').value + '\n\n' + $('m').value);
+};
+
+/* Three.js background */
+try {
+  const renderer = new THREE.WebGLRenderer({canvas:$('bg'),alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60,1,.1,100);
+  camera.position.z = 9;
+
+  const makeMesh = (geometry,color,opacity) =>
+    new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color,wireframe:true,transparent:true,opacity}));
+
+  const a = makeMesh(new THREE.IcosahedronGeometry(2.2,1),0xff5c8a,.25);
+  const b = makeMesh(new THREE.TorusGeometry(1.5,.2,12,50),0xffb84d,.3);
+  const c = makeMesh(new THREE.OctahedronGeometry(1.2),0x7c5cff,.35);
+  a.position.set(3,0,-1);
+  b.position.set(-6,2,-3);
+  c.position.set(-4,-3,-2);
+  scene.add(a,b,c);
+
+  const count = 600;
+  const positions = new Float32Array(count * 3);
+  for (let i=0;i<positions.length;i++) positions[i] = (Math.random()-.5)*30;
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.BufferAttribute(positions,3));
+  const particles = new THREE.Points(geometry,new THREE.PointsMaterial({color:0xffd0e0,size:.05,transparent:true,opacity:.7}));
+  scene.add(particles);
+
+  let mouseX = 0, mouseY = 0, scrollYRatio = 0;
+  addEventListener('mousemove',event => {
+    mouseX = event.clientX / innerWidth - .5;
+    mouseY = event.clientY / innerHeight - .5;
+  });
+  addEventListener('scroll',() => scrollYRatio = scrollY / innerHeight);
+
+  function resize() {
+    renderer.setSize(innerWidth,innerHeight,false);
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  addEventListener('resize',resize);
+
+  (function animate(time) {
+    time *= .001;
+    a.rotation.x = time * .3;
+    a.rotation.y = time * .4;
+    b.rotation.x = time * .6;
+    b.rotation.y = time * .3;
+    c.rotation.y = time * .7;
+    c.rotation.z = time * .4;
+    particles.rotation.y = time * .02;
+    a.position.y = -scrollYRatio * 3;
+    b.position.y = 2 + scrollYRatio * 2 + Math.sin(time) * .5;
+    camera.position.x += (mouseX * 2 - camera.position.x) * .05;
+    camera.position.y += (-mouseY * 2 - camera.position.y) * .05;
+    camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+    requestAnimationFrame(animate);
+  })(0);
+} catch (error) {
+  console.warn('Three.js background could not be initialized:',error);
+}
+
+setLang('en');
+</script>
+</body>
+</html>
